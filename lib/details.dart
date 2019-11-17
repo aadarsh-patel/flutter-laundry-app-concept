@@ -2,6 +2,7 @@ import 'package:codedecoders/model/list.dart';
 import 'package:flutter/material.dart';
 
 class Detailes extends StatelessWidget {
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -9,35 +10,37 @@ class Detailes extends StatelessWidget {
         children: <Widget>[
           Container(
             width: double.infinity,
-            height: MediaQuery.of(context).size.height*4/7,
+            height: MediaQuery.of(context).size.height * 4 / 7,
             decoration: BoxDecoration(
               gradient: LinearGradient(
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,
-                  colors: [Color(0xff40dedf), Color(0xff0fb2ea)],
-                ),
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+                colors: [Color(0xff40dedf), Color(0xff0fb2ea)],
+              ),
             ),
           ),
           Container(
-            margin: EdgeInsets.only(top: MediaQuery.of(context).size.height/2.7),
+            margin:
+                EdgeInsets.only(top: MediaQuery.of(context).size.height / 2.7),
             width: double.infinity,
             height: double.infinity,
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(30),
-                topRight: Radius.circular(30),
-              ),
-              color: Colors.white
-            ),
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(30),
+                  topRight: Radius.circular(30),
+                ),
+                color: Colors.white),
           ),
           Positioned(
             top: 50,
             left: 20,
             child: IconButton(
-              onPressed: Navigator.pop(context),
-                          icon: Icon(Icons.arrow_back,
-              color: Colors.white,
-              size: 25,),
+              onPressed: () => Navigator.pop(context),
+              icon: Icon(
+                Icons.arrow_back,
+                color: Colors.white,
+                size: 25,
+              ),
             ),
           ),
           Positioned(
@@ -57,7 +60,7 @@ class Detailes extends StatelessWidget {
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
                 itemCount: categoryData.length,
-                itemBuilder: (context,index){
+                itemBuilder: (context, index) {
                   bool isSelected = false;
                   if (index == 0) {
                     isSelected = true;
@@ -70,35 +73,37 @@ class Detailes extends StatelessWidget {
                             width: 68,
                             height: 68,
                             decoration: BoxDecoration(
-                              color: isSelected?
-                              Colors.white:
-                              Colors.transparent,
-                              borderRadius: BorderRadius.circular(16),
-                              border: Border.all(
-                                color: Colors.white,
-                                width: 1,
-                              ),
-                              boxShadow: isSelected
-                              ?[
-                                BoxShadow(
-                                  color: Color(0x14000000),
-                                  blurRadius: 10
-                                )
-                              ]: null
-                            ),
+                                color: isSelected
+                                    ? Colors.white
+                                    : Colors.transparent,
+                                borderRadius: BorderRadius.circular(16),
+                                border: Border.all(
+                                  color: Colors.white,
+                                  width: 1,
+                                ),
+                                boxShadow: isSelected
+                                    ? [
+                                        BoxShadow(
+                                            color: Color(0x14000000),
+                                            blurRadius: 10)
+                                      ]
+                                    : null),
                             child: Center(
                               child: Image.asset(categoryData[index].imageUrl),
                             ),
                           ),
-                          SizedBox(height: 10,),
+                          SizedBox(
+                            height: 10,
+                          ),
                           Text(
                             categoryData[index].name,
-                              style:
-                                  TextStyle(color: Colors.white, fontSize: 15),
+                            style: TextStyle(color: Colors.white, fontSize: 15),
                           ),
                         ],
                       ),
-                      SizedBox(width: 20,)
+                      SizedBox(
+                        width: 20,
+                      )
                     ],
                   );
                 },
@@ -113,17 +118,25 @@ class Detailes extends StatelessWidget {
               crossAxisCount: 2,
               children: <Widget>[
                 _customCard(
-                  imageUrl: "tshirt.png", item: "T-shirt", price: "\$0.50", count: 5
-                ),
+                    imageUrl: "tshirt.png",
+                    item: "T-shirt",
+                    price: "\$0.50",
+                    count: 5),
                 _customCard(
-                  imageUrl: "shirt.png", item: "Shirt", price: "\$0.50", count: 5
-                ),
+                    imageUrl: "shirt.png",
+                    item: "Shirt",
+                    price: "\$0.50",
+                    count: 5),
                 _customCard(
-                  imageUrl: "blouse.png", item: "T-shirt", price: "\$0.50", count: 5
-                ),
+                    imageUrl: "blouse.png",
+                    item: "T-shirt",
+                    price: "\$0.50",
+                    count: 5),
                 _customCard(
-                  imageUrl: "hoodie.png", item: "T-shirt", price: "\$0.50", count: 5
-                ),
+                    imageUrl: "hoodie.png",
+                    item: "Hoodie",
+                    price: "\$0.50",
+                    count: 5),
               ],
             ),
           )
@@ -132,7 +145,7 @@ class Detailes extends StatelessWidget {
     );
   }
 
-  _customCard({String imageUrl, String item, String price, int count}){
+  _customCard({String imageUrl, String item, String price, int count}) {
     return SizedBox(
       height: 190,
       width: 160,
@@ -161,26 +174,24 @@ class Detailes extends StatelessWidget {
                 children: <Widget>[
                   Container(
                     decoration: BoxDecoration(
-                      border: Border.all(
-                        color: Colors.blue
-                      ),
-                      borderRadius: BorderRadius.circular(100),
-                      color: Colors.white
+                        border: Border.all(color: Colors.blue),
+                        borderRadius: BorderRadius.circular(100),
+                        color: Colors.white),
+                    child: Text(
+                      " - ",
+                      style: TextStyle(fontSize: 28, letterSpacing: 3),
                     ),
-                    child: Text(" - ",
-                    style: TextStyle(fontSize: 28,letterSpacing: 3),),
                   ),
                   Text("$count"),
                   Container(
                     decoration: BoxDecoration(
-                      border: Border.all(
-                        color: Colors.blue
-                      ),
-                      borderRadius: BorderRadius.circular(100),
-                      color: Colors.white
+                        border: Border.all(color: Colors.blue),
+                        borderRadius: BorderRadius.circular(100),
+                        color: Colors.white),
+                    child: Text(
+                      " + ",
+                      style: TextStyle(fontSize: 28, letterSpacing: 1),
                     ),
-                    child: Text(" + ",
-                    style: TextStyle(fontSize: 28,letterSpacing: 1),),
                   ),
                 ],
               )
@@ -190,7 +201,4 @@ class Detailes extends StatelessWidget {
       ),
     );
   }
-
-
-
 }
